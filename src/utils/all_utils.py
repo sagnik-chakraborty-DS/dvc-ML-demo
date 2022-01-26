@@ -1,3 +1,4 @@
+from genericpath import exists
 import yaml
 import os
 
@@ -9,5 +10,10 @@ def read_yaml(path_to_yaml:str)->dict:
         content=yaml.safe_load(yaml_file)
     return content    
     
-    
+ 
+def create_directory(dirs:list):
+    #we pass list of directory which we want to create
+    for directory_path in dirs:
+        os.makedirs(directory_path, exist_ok=True)
+        print(f"directory is saved at {directory_path}")    
   
