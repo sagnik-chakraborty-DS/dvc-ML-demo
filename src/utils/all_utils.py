@@ -1,5 +1,6 @@
 import yaml
 import os
+import json
 
 #this function take input as path to yaml file
 #and give output in dictionary format what ever written in that yaml
@@ -20,3 +21,10 @@ def save_local_df(data,data_path,index_status=False):
     #to save test train file
     data.to_csv(data_path,index=index_status)
     print(f"data is saved at {data_path}")  
+    
+
+def save_report(report:dict,report_path:str,indentation=4):
+    with open(report_path,"w") as f:
+        json.dump(report,f,indent=indentation)
+    print(f"reports are saved at {report_path}")    
+        
